@@ -1,8 +1,9 @@
 const functions = require('firebase-functions');
 const app = require('express')();
+const fs = require('fs')
 const { ApolloServer } = require('apollo-server-express');
 
-const typeDefs = require('./graphql/typeDefs')
+const typeDefs = fs.readFileSync('./graphql/schema.graphql', {encoding: 'utf8'})
 const resolvers = require('./graphql/resolvers/index')
 
 // Global Config
